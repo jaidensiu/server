@@ -12,8 +12,13 @@ app.get('/server_ip_address', (req: Request, res: Response) => {
 
 app.get('/server_local_time', (req: Request, res: Response) => {
     const time = new Date();
-    const formattedTime = time.toLocaleTimeString('en-GB', { timeZone: 'GMT', timeZoneName: 'short' });
-    res.json({ server_local_time: formattedTime + ':00' });
+    const formattedTime = time.toLocaleTimeString('en-GB', { timeZone: 'GMT', hour12: false });
+    const offset = -time.getTimezoneOffset();
+    const offsetHours = Math.floor(Math.abs(offset) / 60);
+    const offsetMinutes = Math.abs(offset) % 60;
+    const offsetSign = offset >= 0 ? '+' : '-';
+    const formattedOffset = `GMT${offsetSign}${String(offsetHours).padStart(2, '0')}:${String(offsetMinutes).padStart(2, '0')}`;
+    res.json({ server_local_time: `${formattedTime} ${formattedOffset}` });
 });
 
 app.get('/my_name', (req: Request, res: Response) => {
