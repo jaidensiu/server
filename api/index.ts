@@ -12,7 +12,7 @@ app.get('/server_ip_address', (req: Request, res: Response) => {
 
 app.get('/server_local_time', (req: Request, res: Response) => {
     const time = new Date();
-    const formattedTime = time.toLocaleTimeString('en-GB', { timeZoneName: 'short' });
+    const formattedTime = time.toLocaleTimeString('en-GB', { timeZone: 'GMT', timeZoneName: 'short' });
     res.json({ server_local_time: formattedTime + ':00' });
 });
 
