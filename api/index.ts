@@ -12,7 +12,7 @@ app.get('/server_ip_address', (req: Request, res: Response) => {
 
 app.get('/server_local_time', (req: Request, res: Response) => {
     const time = new Date();
-    const formattedTime = time.toLocaleTimeString('en-GB', { timeZone: 'GMT', hour12: false });
+    const formattedTime = time.toLocaleTimeString('en-GB', { hour12: false });
     const offset = -time.getTimezoneOffset();
     const offsetHours = Math.floor(Math.abs(offset) / 60);
     const offsetMinutes = Math.abs(offset) % 60;
