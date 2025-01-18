@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "dotenv -e .env -- npx nodemon -e .ts index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "address": "^2.0.3",
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0",
+    "nodemon": "^3.1.9"
+  }
+}
